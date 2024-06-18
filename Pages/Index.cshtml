@@ -1,10 +1,45 @@
 ﻿@page
 @model IndexModel
+@using ModelExamen.Models;
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container-fluid">
+    <h1 class="display-4 text-center">Zboruri</h1>
+    @if (Model.Zboruri.Length == 0)
+    {
+        <p class="alert-danger">Nu exista zboruri.</p>
+    }
+    else
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Plecare</th>
+                    <th>Destinatie</th>
+                    <th>Data plecare</th>
+                    <th>Ore de zbor</th>
+                    <th>Pilot</th>
+                    <th>Actiuni</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Zbor zbor in Model.Zboruri)
+                {
+                    <tr>
+                        <td>@zbor.AeroportPlecare</td>
+                        <td>@zbor.AeroportDestinatie</td>
+                        <td>@zbor.Data.ToString("dd/MM/yyyy")</td>
+                        <td>@zbor.Durata</td>
+                        <td>@zbor.Pilot.Nume</td>
+                        <td>
+                            <a href="/Edit/@zbor.ZborId" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="/Delete/@zbor.ZborId" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 </div>

@@ -9,13 +9,13 @@ namespace ModelExamen.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
         private readonly ProiectDBContext _dbcontext;
         public Zbor[] Zboruri { get; set; }
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(ProiectDBContext DbContext)
         {
-            _logger = logger;
+            _dbcontext = DbContext;
+            Zboruri = Array.Empty<Zbor>();
         }
 
         public void OnGet()
