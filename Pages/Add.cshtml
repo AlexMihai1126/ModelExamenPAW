@@ -1,5 +1,5 @@
 ﻿@page
-@model ModelExamen.Pages.EditModel
+@model ModelExamen.Pages.AddModel
 @{
     <div class="container">
         <form method="post">
@@ -30,8 +30,7 @@
                 <span asp-validation-for="@Model.Zbor.PilotId" class="text-danger"></span>
             </div>
             <br />
-            <input type="hidden" asp-for="@Model.Zbor.ZborId" />
-            <button class="btn btn-primary" type="submit">Modifica</button>
+            <button class="btn btn-primary" type="submit">Adauga</button>
             <a class="btn btn-danger" asp-page="/Index">Anuleaza</a>
             <br />
         </form>

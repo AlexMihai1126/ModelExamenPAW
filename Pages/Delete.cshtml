@@ -1,4 +1,11 @@
 ﻿@page
 @model ModelExamen.Pages.DeleteModel
-@{
-}
+
+<div class="container">
+    <h1 class="text-center">Confirmare stergere</h1>
+    <form method="post">
+        <input type="hidden" name="id" value="@Model.Zbor.ZborId" />
+        <button type="submit" class="btn btn-danger">Sterge</button>
+        <a class="btn btn-secondary" asp-page="/Index">Anuleaza</a>
+    </form>
+</div>
